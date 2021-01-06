@@ -47,12 +47,12 @@ try:
         compiled_prefix = "kotlinc " + " -d " + directory + "\\" + filename + ".jar"
         compiled_runner = "java -jar " + directory + "\\" + filename + ".jar"
         compiled = True
-        os.system('cmd /c C:\\Users\\Spandan\\compile.cmd {} {} || (pause & exit) & start C:\\Users\\Spandan\\launch.cmd {}'.format(compiled_prefix,fullpath,compiled_runner))
+        os.system('cmd /c %userprofile% {} {} || (pause & exit) & start %userprofile%\\launch.cmd {}'.format(compiled_prefix,fullpath,compiled_runner))
 
     #-------------------------------------------------------------------------------
     if compiled and file_extension[0] not in ['kt']:
-        os.system('cmd /k C:\\Users\\Spandan\\compile.cmd {} {} && C:\\Users\\Spandan\\launch.cmd {}'.format(compiled_prefix,fullpath,compiled_runner))
+        os.system('cmd /k %userprofile%\\compile.cmd {} {} && %userprofile%\\launch.cmd {}'.format(compiled_prefix,fullpath,compiled_runner))
     elif compiled == False:
-        os.system('start C:\\Users\\Spandan\\launch.cmd {} {}'.format(runner,fullpath))
+        os.system('start %userprofile%\\launch.cmd {} {}'.format(runner,fullpath))
 except IndexError:
     print("Please Enter A File Name ...")
